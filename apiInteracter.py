@@ -1,3 +1,5 @@
+# Don't forget to add your API key in the APIKEY variable.
+
 import requests
 from decimal import *
 
@@ -5,9 +7,10 @@ from decimal import *
 
 
 def WeatherFunction(PinCode, CountryCode):
+	APIKEY = 'YourAPIkey'
 
 
-	r = requests.get(f'https://api.openweathermap.org/data/2.5/weather?zip={PinCode},{CountryCode}&appid=APIKEY')
+	r = requests.get(f'https://api.openweathermap.org/data/2.5/weather?zip={PinCode},{CountryCode}&appid={APIKEY}')
 	weatherValues = r.json()
 
 	# Checks for 4xx and 5xx errors
