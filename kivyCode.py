@@ -1,3 +1,6 @@
+# Don't forget to add you API key in APIKEY variable in apiInteracter.py.
+
+
 import os
 from os import path
 import kivy
@@ -10,6 +13,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 
 # Changes the default background from black to Creamy Blue
+# From range (0 - 1)
 Window.clearcolor = (0.521, 0.737, 0.733, 0.4)
 
 
@@ -74,6 +78,7 @@ class PinCountryCodePage(GridLayout):
 		WeatherApp.screen_manager.current = 'WeatherStats'
 
 
+	# Sends the input from the text boxes to the apiInterater.py file and returns that input to the WeatherStatsPage
 	def searchButton(self, instance):
 		pinCodeInput = self.pinCodeInput.text
 		countryCodeInput = self.countryCodeInput.text
@@ -87,7 +92,7 @@ class PinCountryCodePage(GridLayout):
 
 		WeatherApp.WeatherStatsPage.updateInfo(apiInteracter.WeatherFunction(pinCodeInput, countryCodeInput))
 
-		WeatherApp.screen_manager.current = 'WeatherStats'			
+		WeatherApp.screen_manager.current = 'WeatherStats'
 
 
 
@@ -125,6 +130,7 @@ class WeatherStatsPage(GridLayout):
 
 class MyApp(App):
 	def build(self):
+		# Creates 2 screens.
 
 		self.screen_manager = ScreenManager()
 
